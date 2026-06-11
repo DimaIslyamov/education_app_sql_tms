@@ -3,7 +3,7 @@
 from abc import ABC, abstractmethod
 from typing import Generic, Optional, TypeVar
 
-# from models.entities import Course, Direction, Student, StudentResult, Teacher
+from models.entities import Direction
 
 T = TypeVar("T")
 
@@ -32,17 +32,17 @@ class IRepository(ABC, Generic[T]):
         """Удалить сущность по ID."""
 
 
-class ISearchableRepository(IRepository[T], ABC):
-    """Интерфейс репозитория с поиском по частичному совпадению имени."""
-
-    @abstractmethod
-    def search_by_name(self, pattern: str) -> list[T]:
-        """Найти сущности по фрагменту имени или названия."""
-
-
-# class IDirectionRepository(ISearchableRepository[Direction], ABC):
-#     """Интерфейс репозитория учебных направлений."""
+# class ISearchableRepository(IRepository[T], ABC):
+#     """Интерфейс репозитория с поиском по частичному совпадению имени."""
 
 #     @abstractmethod
-#     def get_by_name(self, name: str) -> Optional[Direction]:
-#         """Получить направление по точному названию."""
+#     def search_by_name(self, pattern: str) -> list[T]:
+#         """Найти сущности по фрагменту имени или названия."""
+
+
+class IDirectionRepository(IRepository[Direction], ABC):
+    """Интерфейс репозитория учебных направлений."""
+    pass
+    # @abstractmethod
+    # def get_by_name(self, name: str) -> Optional[Direction]:
+    #     """Получить направление по точному названию."""
