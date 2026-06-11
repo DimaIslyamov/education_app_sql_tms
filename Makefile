@@ -25,10 +25,10 @@ install-dev: install
 	$(PIP) install -r requirements-dev.txt
 
 typecheck:
-	$(MYPY) .
+	$(PYTHON) -m mypy .
 
 lint:
-	$(FLAKE8) .
+	$(PYTHON) -m flake8 .
 
 run:
 	$(PYTHON) main.py
