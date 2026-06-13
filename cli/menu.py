@@ -31,7 +31,7 @@ class PortalApp:
     def _print_main_menu(self) -> None:
         print("\n--- Главное меню ---")
         print("1. Направления")
-        print("2. Преподаватели")
+        # print("2. Преподаватели")
 
     def _dispatch(self, choice: str) -> None:
         handlers = {
@@ -111,4 +111,3 @@ class PortalApp:
         else:
             print("Направление не найдено.")
         pause()
-

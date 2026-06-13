@@ -32,7 +32,6 @@ class DirectionRepository(IDirectionRepository):
             return None
         return Direction(id=row["id"], name=row["name"], description=row["description"])
 
-
     def get_all(self) -> list[Direction]:
         """Получить все направления."""
         rows = self._db.fetchall(
@@ -60,9 +59,10 @@ class DirectionRepository(IDirectionRepository):
             (direction_id,),
         )
         return cursor.rowcount > 0
-    
+
+
 if __name__ == "__main__":
     with Database() as db:
         repo = DirectionRepository(db)
-        dir1 = Direction(id = None, name = "прога")
+        dir1 = Direction(id=None, name="прога")
         repo.add(dir1)

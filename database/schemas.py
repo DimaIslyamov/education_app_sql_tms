@@ -46,12 +46,13 @@ CREATE TABLE IF NOT EXISTS student_results (
 );
 """
 
+
 def init_schema(db: Database) -> None:
     """Создать таблицы, если они ещё не существуют."""
     db.connect().executescript(SCHEMA_SQL)
     db.connect().commit()
 
+
 if __name__ == "__main__":
     with Database() as db:
         init_schema(db)
-

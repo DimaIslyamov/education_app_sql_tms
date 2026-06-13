@@ -5,7 +5,6 @@ from datetime import date
 from typing import Optional
 
 
-
 @dataclass
 class Direction:
     """Учебное направление."""

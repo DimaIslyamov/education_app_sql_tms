@@ -25,13 +25,6 @@ class Database:
             self._connection.close()
             self._connection = None
 
-    def __exit__(self, exc_type: Any, exc: Any, tb: Any) -> None:
-        if self._connection is not None:
-            if exc_type is None:
-                self._connection.commit()
-
-            self.close()
-
     def execute(
         self,
         query: str,
@@ -62,3 +55,10 @@ class Database:
     def __enter__(self) -> "Database":
         self.connect()
         return self
+
+    def __exit__(self, exc_type: Any, exc: Any, tb: Any) -> None:
+        if self._connection is not None:
+            if exc_type is None:
+                self._connection.commit()
+
+            self.close()
